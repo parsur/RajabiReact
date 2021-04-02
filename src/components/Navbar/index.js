@@ -50,7 +50,7 @@ function NavbarTwo(props) {
                             </MenuLinkTop>
                         </MenuLiTop>
                         <MenuLiTop>
-                            <MenuLinkTop to='/reports'>
+                            <MenuLinkTop to='/articlelists'>
                                 <IoIosPaper />
                                 <span style={{marginLeft: '16px'}}>مقاله ها</span>
                             </MenuLinkTop>
@@ -88,7 +88,7 @@ function NavbarTwo(props) {
                             </MenuLink>
                         </MenuLi>
                         <MenuLi>
-                            <MenuLink to='/reports'>
+                            <MenuLink to='/articlelists'>
                                 <IoIosPaper />
                                 <span style={{marginLeft: '16px'}}>مقاله ها</span>
                             </MenuLink>

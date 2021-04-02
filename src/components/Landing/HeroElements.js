@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { CgLogIn } from 'react-icons/cg';
 
 export const HeroContainer = styled.div`
-    background: #064F7C;
+    background: #fff;
 `
 
 export const HeroMainContainer = styled.div`
@@ -323,7 +323,8 @@ export const Col = styled.div`
     transition: 0.3s;
 
     &:hover {
-        transform: scale(1.1);
+        background: #eeeeee;
+        border-radius: 10px;
         transition: 0.3s;
     }
 `
@@ -342,7 +343,8 @@ export const IconText = styled.p`
     border-radius: 0 0 20px 20px;
     height: 100%;
     direction: rtl;
-    font-size: clamp(1rem, 2vw, 2rem)
+    font-size: clamp(1rem, 2vw, 2rem);
+    color: black;
 `
 
 export const HeroIcon = styled.div`

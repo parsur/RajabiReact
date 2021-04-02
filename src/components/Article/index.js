@@ -25,7 +25,7 @@ import {
     Searchs,
     Filter,
     SelectS
-} from './CourseElements';
+} from './DetailsElements';
 import courselogo from '../../images/courselogo.png';
 import api from '../../api';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -38,7 +38,7 @@ const options = [
     { value: 'دسته بندی سوم', label: 'دسته بندی سوم' }
   ]
 
-const Course = ({ data }) => {
+const Article = ({ data }) => {
     const [course, setCourse] = useState([]);
     const [search, setSearch] = useState("");
 
@@ -52,7 +52,7 @@ const Course = ({ data }) => {
     const list = course.map(({ name, price, description: { description }, i }) => {
         return <Block key={i}>
 
-            <MainB to="/coursedetails">
+            <MainB to="/articledetails">
 
                 <Photo></Photo>
 
@@ -153,4 +153,4 @@ const Course = ({ data }) => {
     );
 }
 
-export default Course;
+export default Article;

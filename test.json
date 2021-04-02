@@ -1,106 +1,72 @@
 {
-    "courses": [
-       {
-          "id": 89,
-          "name": "سلام",
-          "price": "12000",
-          "statuses": {
-             "status_id": "89",
-             "status": "1"
-          },
-          "description": {
-             "description_id": "89",
-             "description": "<p>تستسستستستستس</p>"
-          },
-          "category": null,
-          "sub_category": null,
-          "media": [
-             {
-                "media_id": "89",
-                "url": "test1.jpg"
-             },
-             {
-                "media_id": "89",
-                "url": "https://github.com/parsur/saraRajabi/projects/1https://github.com/parsur/saraRajabi/projects/1"
-             },
-             {
-                "media_id": "89",
-                "url": "erfan.jpg"
-             },
-             {
-                "media_id": "89",
-                "url": "ImageUploadProblemHost.png"
-             },
-             {
-                "media_id": "89",
-                "url": "ImageUploadProblemHost.png"
-             },
-             {
-                "media_id": "89",
-                "url": "ImageUploadProblemHost.png"
-             },
-             {
-                "media_id": "89",
-                "url": "https://www.aparat.com/video/video/embed/videohash/1WxYM/vt/frame"
-             }
-          ]
-       },
-       {
-          "id": 93,
-          "name": "dsads",
-          "price": "12000",
-          "statuses": {
-             "status_id": "93",
-             "status": "0"
-          },
-          "description": {
-             "description_id": "93",
-             "description": "<p>sdsadsadsadsad</p>"
-          },
-          "category": null,
-          "sub_category": null,
-          "media": [
-             {
-                "media_id": "93",
-                "url": "ImageUploadProblemHost.png"
-             }
-          ]
-       }
-    ],
-    "categories": [
-       {
-          "id": 2,
-          "name": "sadasds"
-       },
-       {
-          "id": 6,
-          "name": "sadsaasdsa"
-       },
-       {
-          "id": 1,
-          "name": "sadsad"
-       },
-       {
-          "id": 4,
-          "name": "sadsd"
-       },
-       {
-          "id": 3,
-          "name": "sdadas"
-       },
-       {
-          "id": 5,
-          "name": "sdsadasda"
-       }
-    ],
-    "subCategories": [
-       {
-          "id": 7,
-          "name": "sadsdsad"
-       },
-       {
-          "id": 8,
-          "name": "تست میشود"
-       }
-    ]
- }
+   "course": {
+      "id": 89,
+      "name": "سلام",
+      "price": "12000",
+      "category_id": "1",
+      "subCategory_id": "1",
+      "statuses": {
+         "status_id": "89",
+         "status": "1"
+      },
+      "description": {
+         "description_id": "89",
+         "description": "<p>تستسستستستستس</p>"
+      },
+      "category": {
+         "id": 1,
+         "name": "sadsad"
+      },
+      "sub_category": {
+         "id": 1,
+         "name": "dfdsf"
+      }
+   },
+   "image_314": "sararajabi.com/home/h151778/public_html/images/test1.jpg",
+   "video_314": "test1.jpg",
+   "video_328": "https://github.com/parsur/saraRajabi/projects/1https://github.com/parsur/saraRajabi/projects/1",
+   "image_329": "sararajabi.com/home/h151778/public_html/images/erfan.jpg",
+   "video_329": "erfan.jpg",
+   "image_335": "sararajabi.com/home/h151778/public_html/images/ImageUploadProblemHost.png",
+   "video_335": "ImageUploadProblemHost.png",
+   "image_337": "sararajabi.com/home/h151778/public_html/images/ImageUploadProblemHost.png",
+   "video_337": "ImageUploadProblemHost.png",
+   "image_339": "sararajabi.com/home/h151778/public_html/images/ImageUploadProblemHost.png",
+   "video_339": "ImageUploadProblemHost.png",
+   "video_341": "https://www.aparat.com/video/video/embed/videohash/1WxYM/vt/frame"
+}
+
+
+
+
+
+
+
+
+
+
+{
+   "orders": [
+      {
+         "id": 14,
+         "factor": "test",
+         "user_id": "100",
+         "course_id": "89",
+         "course": {
+            "id": 89,
+            "name": "سلام",
+            "price": "12000"
+         }
+      }
+   ]
+}
+
+
+
+
+
+{
+   "whyMe": {
+      "value": "<h3>سلام</h3><h4><span style=\"background-color:hsl(30,75%,60%);\">به وب سایت من خوش آمدید .</span></h4><p><span class=\"text-big\" style=\"background-color:rgb(255,255,255);color:hsl(0,0%,0%);\">ما در این وب سایت به آموزش مهارت‌های ارتباطی، فن بیان، سخنرانی می‌پردازیم که برای یک زندگی موثرتر و حرفه‌ای‌تر نیاز است.</span><br><span class=\"text-big\" style=\"background-color:rgb(255,255,255);color:hsl(0,0%,0%);\">&nbsp;با این آموزش‌ها می توانید بهتر و موثر تر ارتباط برقرار کنید و دوستی های پایداری رو شکل بدید</span><br><span class=\"text-big\" style=\"color:hsl(0,0%,0%);\">دوره ها در این وبسایت با یک قیمت عالی برگزار میشود شما می تونید با پرداخت کمترین قیمت بیشترین بازخورد و بازدهی رو بگیرید .</span></p><h4>مدرس این وب سایت :<br><span style=\"color:hsl(0,75%,60%);\">سارا رجبی</span><span style=\"color:hsl(0,0%,60%);\">&nbsp;</span></h4><p><span style=\"color:black;\">مدرس فن بیان و مهارت های ارتباطی</span><br><span style=\"color:black;\">مدرس تولید محتوا</span><br><span style=\"color:black;\">مدرس مجموعه فرهنگی ، آموزشی گیلدا</span><br><span style=\"color:black;\">برگزار کننده چندین دوره ی آنلاین فن بیان</span><br><span style=\"color:black;\">مجری جشن ها و مراسم ها</span><br><span style=\"color:black;\">مجری اولین همایش کشوری کودکان صلح و گفت و گو</span><br><span style=\"color:black;\">مستر مجری جشنواره ی قصه گویی</span><br><span style=\"color:black;\">دومین مجری جوان کشور در سال 1397</span><br><span style=\"color:black;\">هنرجو دوره ی فن بیان حرفه ای</span><br><span style=\"color:black;\">دارنده ی چکاوک سیمین جشنواره مجریان و هنرمندان صحنه ایران</span><br><span style=\"color:black;\">دارنده ی گواهی معتبر از باشگاه ایرآنمجری</span><br><span style=\"color:black;\">دارنده مدرک حرفه ای فن بیان و اجرا</span><br><span style=\"color:black;\">دارنده گواهی معتبر سخنرانی حرفه ای&nbsp; از فنی حرفه ای</span><br><span style=\"color:black;\">برگزیده جشنواره قصه گویی</span><br><span style=\"color:black;\">نویسنده کتاب (( <strong>خدا</strong> ))</span><br><span style=\"color:black;\">نویسنده کتاب (( <strong>ملکه باشیم</strong> ))</span><br><span style=\"color:black;\">نویسنده چندین مقاله در زمینه فن بیان و مهارت های ارتباطی</span></p><p>برای ارتباط بیشتر با مدرس از راه های ارتباطی زیر اقدام کنید :</p><p>شماره تماس : 09140734880<br>آیدی اینستاگرام سارا رجبی : <a href=\"https://www.instagram.com/sararajabi.ir/\">sararajabi.ir@</a><br>گروه آموزشی تلگرام : <a href=\"https://t.me/joinchat/UzdcLu101RM6DgAp\">sararajabi</a>&nbsp;<br>کانال تلگرام : <a href=\"https://t.me/sara_rajabi\">sara_rajabi@</a><br>ایمیل : <a href=\"mailto:sararajabiart3@gmail.com\">sararajabiart3@gmail.com</a></p><figure class=\"image image_resized image-style-side\" style=\"width:27.93%;\"><img src=\"https://sararajabi.poshtiban.io/signed/ebce1206007a5c9ec137baaf0ad3414a/1648720424/606446a971f4b257a6506aff/nwdn_file_temp_1617182145563.png\"></figure><p>&nbsp;</p>"
+   }
+}

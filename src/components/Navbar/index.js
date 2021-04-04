@@ -26,7 +26,7 @@ function NavbarTwo(props) {
                 <FaBarsIcon onClick={showNav} />
             </NavLink>
                         <MenuLiTop>
-                            <MenuLinkTop last to='/userpage'>
+                            <MenuLinkTop last="true" to='/userpage'>
                                 <FaUserCircle />
                                 <span style={{marginLeft: '16px'}}>حساب من</span>
                             </MenuLinkTop>
@@ -62,7 +62,7 @@ function NavbarTwo(props) {
                             </MenuLinkTop>
                         </MenuLiTop>
                         <MenuLiTop>
-                            <MenuLinkTop active to='/'>
+                            <MenuLinkTop active="true" to='/'>
                                 <AiFillHome />
                                 <span style={{marginLeft: '16px'}}>خانه</span>
                             </MenuLinkTop>
@@ -76,7 +76,7 @@ function NavbarTwo(props) {
                     </NavLink>
                 </NavLi>
                         <MenuLi>
-                            <MenuLink active to='/'>
+                            <MenuLink active="true" to='/'>
                                 <AiFillHome />
                                 <span style={{marginLeft: '16px'}}>خانه</span>
                             </MenuLink>

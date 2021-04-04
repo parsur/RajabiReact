@@ -6,7 +6,7 @@ import {
     UserNavbar,
     ItemContainer,
     LinkContainer,
-    Lp,
+    Lp, Span,
     ProfileContainer,
     Profile,
     ProfileImg,
@@ -42,7 +42,7 @@ const User = ({
     const [user, setUser] = useState();
 
     useEffect(() => {
-        api("user/show")
+        api("api/user/show")
             .then(({ user }) => {
                 setUser(user);
             })
@@ -66,10 +66,10 @@ const User = ({
                         </Profile>
                     </ProfileContainer>
                     <ItemContainer>
-                        {data.map(({to, text, icon}) => {
+                        {data.map(({to, text, icon}, i) => {
                             return(
-                                <LinkContainer to={to}>
-                                    <Lp>{text}</Lp>{icon}
+                                <LinkContainer key={i} to={to}>
+                                    <Lp>{text}</Lp><Span>{icon}</Span>
                                 </LinkContainer>
                             );
                         })}
@@ -97,9 +97,9 @@ const User = ({
                         </Profile>
                     </ProfileContainer>
                     <ItemContainer>
-                        {data.map(({to, text, icon}) => {
+                        {data.map(({to, text, icon}, i) => {
                             return(
-                                <LinkContainer to={to}>
+                                <LinkContainer key={i} to={to}>
                                     <Lp>{text}</Lp>{icon}
                                 </LinkContainer>
                             );

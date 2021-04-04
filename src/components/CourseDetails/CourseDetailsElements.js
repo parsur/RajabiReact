@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import detailstop from '../../images/detailstop.png';
+import { HiOutlineUserCircle } from 'react-icons/hi';
 
 export const Container = styled.div`
   display: flex;
@@ -246,4 +247,170 @@ export const SBC = styled.div`
   position: sticky;
   position: -webkit-sticky;
   top: 0;
+`
+
+export const Comments = styled.div`
+  width: 90%;
+  border-radius: 10px;
+  min-height: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+`
+
+export const MakeNew = styled.div`
+  width: 780px;
+  background: #eee;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+`
+
+export const MNTop = styled.div`
+  width: 90%;
+  height: 46%;
+  display: flex;
+`
+
+export const MNBottom = styled.div`
+  width: 90%;
+  height: 46%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+export const MNLeft = styled.div`
+  width: 50%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+export const MNRight = styled.div`
+  width: 50%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const TextArea = styled.textarea`
+  width: 90%;
+  height: 100px;
+  margin: 10px;
+  resize: none;
+  border-radius: 10px;
+  direction: rtl;
+  padding: 10px;
+  border: 1px solid grey;
+`
+
+export const MNText = styled.div`
+  direction: rtl;
+  font-size: 30px;
+  margin-right: 30%;
+`
+
+export const NameInput = styled.input`
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  direction: rtl;
+  padding: 0 10px;
+`
+
+export const MNSubBottom = styled.div`
+  width: 80%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const SubmitComments = styled.button`
+  width: 45%;
+  height: 90%;
+  border-radius: 15px;
+  border: none;
+  background: #F4DD4F;
+  font-size: 20px;
+`
+
+export const CommentsH2 = styled.h2`
+  margin: 0 0 20px 0;
+  width: 60%;
+  direction: rtl;
+  font-size: 40px;
+  text-align: center;
+`
+
+export const Comment = styled.div`
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #eee;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px 0;
+`
+
+export const UserTop = styled.div`
+  width: 80%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const UserComment = styled.div`
+  width: 85%;
+  min-height: 50px;
+  resize: none;
+  border-radius: 10px;
+  direction: rtl;
+  font-size: 22px;
+  padding: 5px 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const Commenter = styled.h3`
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30px;
+  color: rgb(159, 161, 0);
+`
+
+export const HiOutlineUserCircles = styled(HiOutlineUserCircle)`
+  color: black;
+  font-size: 40px;
+  margin-left: 10px;
+`
+
+export const Videos = styled.div`
+  width: 100%;
+  height: 500px;
+  background-image: radial-gradient(circle, #eeeeee50 , #00000050);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Iframe = styled.iframe`
+  width: unset;
 `

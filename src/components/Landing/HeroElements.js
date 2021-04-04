@@ -84,6 +84,10 @@ export const HeroLeftSide = styled.div`
         border-radius: 0 0 0 0;
         flex-direction: column;
     }
+
+    @media screen and (max-height: 680px) and (max-width: 500px){
+        height: 240vh;
+    }
 `
 
 export const HeroRightSide = styled.div`
@@ -167,13 +171,17 @@ export const HeroTextContainer = styled.div`
 `
 
 export const HeroP = styled.p`
-    font-size: clamp(1rem, 1.8vw, 2.5rem);
+    font-size: clamp(0.8rem, 1.8vw, 2.5rem);
     margin-bottom: 0.1vh;
 `
 
 export const HeroH1 = styled.h1`
-    font-size: clamp(2rem, 2.5vw, 4rem);
+    font-size: clamp(1.8rem, 2.5vw, 4rem);
     margin-bottom: 2vh;
+
+    @media screen and (max-width:350px){
+        font-size: clamp(1.3rem, 2.5vw, 4rem);
+    }
 `
 
 export const HeroDesc = styled.p`

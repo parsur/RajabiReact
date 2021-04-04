@@ -26,7 +26,25 @@ import {
   Bottom,
   BLeft,
   BRight,
-  SBC
+  SBC,
+  Comments,
+  MakeNew,
+  MNTop,
+  MNBottom,
+  MNLeft,
+  MNRight,
+  TextArea,
+  MNText,
+  NameInput,
+  MNSubBottom,
+  SubmitComments,
+  CommentsH2,
+  Comment,
+  UserTop,
+  UserComment,
+  Commenter,
+  HiOutlineUserCircles,
+  Videos, Iframe
 } from './CourseDetailsElements';
 import test2bg from '../../images/test2bg.jpeg';
 import ImageGallery from 'react-image-gallery';
@@ -34,6 +52,8 @@ import './coursedetails.css';
 import api from '../../api';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Carousel, { Dots, slidesToShowPlugin} from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 const images = [
   {
@@ -55,12 +75,14 @@ const CourseDetails = () => {
   const [course, setCourse] = useState([]);
   const [intro, setIntro] = useState([]);
   const [description, setDescription] = useState([]);
+  const [comments, setComments] = useState([]);
 
     useEffect(() => {
         api("api/course/details")
             .then(({ course }) => {
                 setCourse(course);
                 setIntro(course.description);
+                setComments(course.comments);
             })
     }, []);
 
@@ -157,6 +179,38 @@ const CourseDetails = () => {
       </Middle>
 
       <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
+
+        <Videos>
+
+<div style={{width:"80%", background:"#00000050"}}>
+        <Carousel
+    plugins={[
+    'centered',
+    'infinite',
+    'arrows',
+    {
+      resolve: slidesToShowPlugin,
+      options: {
+       numberOfSlides: 2,
+      },
+    },
+  ]}   
+>
+  <img src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+  <img src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+  <img src="https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+</Carousel>
+</div>
+          {/* {harchi.map(({ harchi }) => {
+            return (
+              <>
+              </>
+            );
+          })} */}
+
+        </Videos>
+      
+      <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
       
       <Bottom>
         <BLeft>
@@ -200,7 +254,7 @@ const CourseDetails = () => {
           </SBC>
 
         </BLeft>
-        <BRight dangerouslySetInnerHTML={ {__html: description.value} }/>
+        <div className="course-details-description" dangerouslySetInnerHTML={ {__html: description.value} }/>
         
         {/* <CKEditor
                     editor={ ClassicEditor }
@@ -230,6 +284,61 @@ const CourseDetails = () => {
       </Bottom>
 
       <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
+
+      <CommentsH2>نظر ها</CommentsH2>
+
+      <Comments>
+
+        <MakeNew>
+
+          <MNTop>
+
+            <MNLeft>
+
+              <NameInput type="text" placeholder="نام شما"></NameInput>
+
+            </MNLeft>
+
+            <MNRight>
+
+              <MNText>کامنت نو</MNText>
+
+            </MNRight>
+
+          </MNTop>
+
+          <MNBottom>
+
+            <TextArea placeholder="کامنت شما" >
+
+            </TextArea>
+
+          </MNBottom>
+
+          <MNSubBottom>
+
+            <SubmitComments>ثبت کامنت</SubmitComments>
+
+          </MNSubBottom>
+
+        </MakeNew>
+
+        {comments.map(({ comment }) => {
+          return(
+        <Comment>
+          
+          <UserTop>
+
+            <Commenter><HiOutlineUserCircles/>جوزف دو</Commenter>
+
+          </UserTop>
+
+          <UserComment>{comment}</UserComment>
+        
+        </Comment> );
+})}
+
+      </Comments>
 
     </Container>
   )

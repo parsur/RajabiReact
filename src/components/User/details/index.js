@@ -29,7 +29,7 @@ const Details = ({
     const [user, setUser] = useState();
 
     useEffect(() => {
-        api("user/show")
+        api("api/user/show")
             .then(({ user }) => {
                 setUser(user);
             })

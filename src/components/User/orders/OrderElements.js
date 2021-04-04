@@ -21,11 +21,22 @@ export const Block = styled.div`
   justify-content: flex-start;
   padding: 10px;
   direction: rtl;
+
+  @media screen and (max-width: 500px){
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    height: auto;
+  }
 `
 
 export const Hr = styled.hr`
   width: 80%;
+  margin-top: 20px;
   border: 2px solid #eee;
+
+  @media screen and (max-width: 500px){
+    display: none;
+  }
 `
 
 export const BBlock = styled.div`
@@ -40,4 +51,10 @@ export const BBlock = styled.div`
   border: 1px solid grey;
   border-radius: 5px;
   background: #fff;
+
+  @media screen and (max-width: 500px){
+    width: 40%;
+    height: 80px;
+    margin: 5px;
+  }
 `

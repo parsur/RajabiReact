@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import whymebg from '../../images/test2bg.jpeg';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import { VscSearchStop } from 'react-icons/vsc';
 
 export const Container = styled.div`
     display: flex;
@@ -44,7 +45,6 @@ export const Right = styled.div`
 
 export const Top = styled.div`
     width: 100%;
-    height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,6 +84,8 @@ export const Img = styled.img`
 
 export const H1 = styled.h1`
     font-size: clamp(2rem, 3vw, 2.5rem);
+    width: 100%;
+    text-align: center;
 `
 
 export const P = styled.p`
@@ -219,4 +221,71 @@ export const Filter = styled.div`
 
 export const SelectS = styled(Select)`
     width: 100%;
+`
+
+export const NoResult = styled.div`
+    width: 60%;
+    height: 200px;
+    font-size: 40px;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F4DD4F;
+    border-radius: 20px;
+    margin-top: 50px;
+`
+
+export const VscSearchStops = styled(VscSearchStop)`
+    font-size: 100px;
+`
+
+export const OtherCourses = styled.div`
+    width: 90%;
+    min-height: 350px;
+    border-radius: 10px;
+    margin: 40px 0 10px 0;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+export const OCTop = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+`
+
+export const OCHR = styled.hr`
+    border: 1px solid gray;
+    width: 50%;
+`
+
+export const OCBottom = styled.div`
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+    background: #00000050;
+`
+
+export const H3 = styled.h3`
+    direction: rtl;
+    font-size: 30px;
+`
+
+export const Suggested = styled.div`
+    width: 500px;
+    height: 250px;
+    background: #F4DD4F;
+    margin: 0 10px;
+    border-radius: 10px;
+    overflow: scroll;
 `

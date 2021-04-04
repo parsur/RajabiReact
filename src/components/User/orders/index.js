@@ -25,7 +25,7 @@ const Orders = ({}) => {
           <Container>
             <h1 style={{margin:"10px 0", color:"darkcyan"}}>سفارش های شما</h1>
 
-            {order.map(({ id, course: {name}, course: {price} ,factor, i }) => {
+            {order.map(({ id, course: {name}, course: {price} ,factor}, i) => {
               return <Block key={i}>
                 
                 <BBlock>دوره: {name}</BBlock>
@@ -36,9 +36,10 @@ const Orders = ({}) => {
 
                 <BBlock>شماره سفارش: {id}</BBlock>
 
+                <Hr></Hr>
+
               </Block>
             })}
-            <Hr></Hr>
           </Container>
         </>
     ) : (

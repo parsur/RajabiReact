@@ -112,7 +112,7 @@ function App() {
           <Route path='/userpage' exact component={UserPage}/>
           <Route path='/consultante' exact component={Consultante}/>
           <Route path='/whyme' exact component={WhymePage}/>
-          <Route path='/coursedetails' exact component={CourseDetailsPage}/>
+          <Route path='/course/:id' exact component={CourseDetailsPage}/>
           <Route path='/articledetails' exact component={ArticleDetails}/>
           <Route path='/articlelists' exact component={ArticleLists}/>
         </Switch>

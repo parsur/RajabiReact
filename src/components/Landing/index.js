@@ -41,19 +41,18 @@ import mainlogo from '../../images/mainlogo.png';
 import { backStyle, gifStyle } from '../../Data';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
+import api from '../../api';
 
 const Hero = () => {
 
    const [home, setHome] = useState(null);
 
   useEffect(() => {
-    // here is fetch id. change it if you want
-    fetch("http://sararajabi.com/api/home")
-    .then(res => res.json())
-    .then((data) => {
-      setHome(data);
-    })
-  }, []);
+        api("api/home")
+            .then((data) => {
+                setHome(data);
+            })
+    }, []);
 
     return home ? (
         <HeroContainer>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import{ useParams } from 'react-router-dom';
 import {
   Container,
   Top,
@@ -54,6 +55,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Carousel, { Dots, slidesToShowPlugin} from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import axios from 'axios';
 
 const images = [
   {
@@ -71,27 +73,19 @@ const images = [
 ];
 
 const CourseDetails = () => {
+  let { id } = useParams();
 
   const [course, setCourse] = useState([]);
-  const [intro, setIntro] = useState([]);
-  const [description, setDescription] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [desc, setDesc] = useState([]);
 
-    useEffect(() => {
-        api("api/course/details")
-            .then(({ course }) => {
-                setCourse(course);
-                setIntro(course.description);
-                setComments(course.comments);
-            })
-    }, []);
-
-    useEffect(() => {
-      api("api/whyMe")
-          .then((data) => {
-              setDescription(data.whyMe);
-          })
-  }, []);
+useEffect(() => {
+  api(`api/course/details?id=${id}`)
+      .then((data) => {
+          console.log(data);
+          setCourse(data.course);
+          setDesc(data.course.description);
+      })
+}, []);
 
   return (
     <Container>
@@ -150,7 +144,7 @@ const CourseDetails = () => {
 
           <Description>
 
-            <Room dangerouslySetInnerHTML={{ __html: intro.description }}></Room>
+            <Room dangerouslySetInnerHTML={{ __html: desc.description }}></Room>
 
             <H3>کسب های این دوره</H3>
 
@@ -254,7 +248,7 @@ const CourseDetails = () => {
           </SBC>
 
         </BLeft>
-        <div className="course-details-description" dangerouslySetInnerHTML={ {__html: description.value} }/>
+        <div className="course-details-description" dangerouslySetInnerHTML={ {__html: desc.description} }/>
         
         {/* <CKEditor
                     editor={ ClassicEditor }
@@ -323,7 +317,7 @@ const CourseDetails = () => {
 
         </MakeNew>
 
-        {comments.map(({ comment }) => {
+        {/* {comments.map(({ comment }) => {
           return(
         <Comment>
           
@@ -336,7 +330,7 @@ const CourseDetails = () => {
           <UserComment>{comment}</UserComment>
         
         </Comment> );
-})}
+})} */}
 
       </Comments>
 

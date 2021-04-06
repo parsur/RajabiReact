@@ -42,26 +42,41 @@ import Loader from 'react-loader-spinner';
 import axios from 'axios';
 import CourseDetails from '../CourseDetails';
 
-const options = [
-    { value: 'دسته بندی اول', label: 'دسته بندی اول' },
-    { value: 'دسته بندی دوم', label: 'دسته بندی دوم' },
-    { value: 'دسته بندی سوم', label: 'دسته بندی سوم' }
-  ]
-
 const token = 'parsur';
 
 const Course = ({ data }) => {
     const [course, setCourse] = useState(null);
     const [search, setSearch] = useState("");
     const [noRes, setNoRes] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         api("api/course/show")
             .then((data) => {
                 setCourse([])
                 setCourse(data.courses);
+                setCategories(data.categories);
+                console.log(data);
             })
     }, []);
+
+    const options = [
+        // { value: `${categories.name}`},
+        // { value: `${categories.name}`},
+        // { value: `${categories.name}`}
+        categories.map(({name}, i) => {
+            return(
+                { value: `${categories.name}`}
+            );
+        })
+    ]
+
+    // [
+    //     { value: 'دسته بندی اول'},
+    //     { value: 'دسته بندی دوم'},
+    //     { value: 'دسته بندی سوم'}
+    // ]
+    
 
     function submit(){
         console.log(search);
@@ -69,7 +84,7 @@ const Course = ({ data }) => {
             search: search,
         }, {
             headers: {
-              'api_key': `Basic ${token}` 
+              'api_key': `${token}` 
             }
           }
         )
@@ -121,7 +136,7 @@ const Course = ({ data }) => {
                                 </Searchs>
                                 <FilterContainer>
                                     <Filter>
-                                        <SelectS options={options} placeholder="دسته بندی اول" />
+                                        <SelectS options={options/* "value :" `${categories.map(({name}, i) =>{ return({name})})}`*/} placeholder="دسته بندی اول" />
                                     </Filter>
                                     <Filter>
                                         <SelectS options={options} placeholder="دسته بندی دوم" />

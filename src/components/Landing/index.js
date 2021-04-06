@@ -29,7 +29,9 @@ import {
     Col,
     IconTextContainer,
     IconText,
-    HeroIcon
+    HeroIcon,
+    WelcomeUser,
+    Welcome
  } from './HeroElements';
 import Particles from 'react-particles-js';
 import about from '../../images/about.png';
@@ -46,11 +48,13 @@ import api from '../../api';
 const Hero = () => {
 
    const [home, setHome] = useState(null);
+   const [isLogin, setIslogin] = useState(false);
 
   useEffect(() => {
         api("api/home")
             .then((data) => {
                 setHome(data);
+                setIslogin(data.authentication);
             })
     }, []);
 
@@ -62,10 +66,17 @@ const Hero = () => {
                     <HeroLeftSide>
                       <HeroLoginContainer>
                         <LogIn>
-                          <LoginCol>
+                          <div style={isLogin ? {display:"none"} : {display:"unset"}}>
+                          <LoginCol href="http://sararajabi.com/login">
                             <LoginButton>ورود</LoginButton>
                             <LoginIcon></LoginIcon>
                           </LoginCol>
+                          </div>
+                          <div style={isLogin ? {display:"unset"} : {display:"none"}}>
+                          <Welcome href="http://localhost:3000/userpage#/">
+                            <WelcomeUser>Ferox</WelcomeUser>
+                          </Welcome>
+                          </div>
                         </LogIn>
                       </HeroLoginContainer>
                       <HeroTextContainer>

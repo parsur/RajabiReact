@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import User from '../User';
 import { dash, userDash } from '../../Data';
 import Nsi from '../User/notsignedin';
+import api from '../../api';
 
 const UserPage = () => {
-    const [isSignedIn] = useState(true);
+    const [islogin, setIslogin] = useState(false);
+
+    useEffect(() => {
+        api("api/home")
+            .then((data) => {
+                setIslogin(data.authentication);
+            })
+    }, []);
+
     return (
         <>
-        <div style={isSignedIn ? {display:"unset"} : {display:"none"}}>
+        <div style={islogin ? {display:"unset"} : {display:"none"}}>
             <User {...dash} data={userDash} />
         </div>
-        <div style={isSignedIn ? {display:"none"} : {display:"unset"}}>
+        <div style={islogin ? {display:"none"} : {display:"unset"}}>
             <Nsi />
         </div>
         </>

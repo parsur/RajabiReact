@@ -146,6 +146,12 @@ export const Block = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    transition: 0.2s;
+
+    &:hover{
+        box-shadow: 3px 3px 5px grey;
+        transition: 0.2s;
+    }
 
     @media screen and (max-width: 250px) {
         width: 95%;

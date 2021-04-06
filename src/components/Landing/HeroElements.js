@@ -129,6 +129,8 @@ export const LogIn = styled.button`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         background: #064F7C;
@@ -145,8 +147,10 @@ export const LogIn = styled.button`
     }
 `
 
-export const LoginCol = styled.div`
+export const LoginCol = styled.a`
     display: flex;
+    text-decoration: none;
+    color: unset;
 `
 
 export const LoginButton = styled.p`
@@ -371,4 +375,17 @@ export const HeroIcon = styled.div`
         height: 70px;
         margin: 10px;
     }
+`
+
+export const Welcome = styled.a`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: unset;
+`
+
+export const WelcomeUser = styled.div`
+    font-size: clamp(1.2rem, 2vw, 2rem);
 `

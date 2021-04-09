@@ -55,6 +55,7 @@ const Hero = () => {
             .then((data) => {
                 setHome(data);
                 setIslogin(data.authentication);
+                console.log(data);
             })
     }, []);
 
@@ -67,13 +68,13 @@ const Hero = () => {
                       <HeroLoginContainer>
                         <LogIn>
                           <div style={isLogin ? {display:"none"} : {display:"unset"}}>
-                          <LoginCol href="http://sararajabi.com/login">
+                          <LoginCol to="/login">
                             <LoginButton>ورود</LoginButton>
                             <LoginIcon></LoginIcon>
                           </LoginCol>
                           </div>
                           <div style={isLogin ? {display:"unset"} : {display:"none"}}>
-                          <Welcome href="http://localhost:3000/userpage#/">
+                          <Welcome to="/userpage#/">
                             <WelcomeUser>Ferox</WelcomeUser>
                           </Welcome>
                           </div>

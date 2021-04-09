@@ -149,7 +149,7 @@ export const Block = styled.div`
     transition: 0.2s;
 
     &:hover{
-        box-shadow: 3px 3px 5px grey;
+        box-shadow: 1px 1px 5px grey;
         transition: 0.2s;
     }
 

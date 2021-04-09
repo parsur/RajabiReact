@@ -10,6 +10,7 @@ import WhymePage from './components/Pages/WhymePage';
 import CourseDetailsPage from './components/Pages/CourseDetails';
 import ArticleDetails from './components/Pages/ArticleDetails';
 import ArticleLists from './components/Pages/ArticleListPage';
+import Login from './components/Login';
 
 function App() {
 
@@ -115,6 +116,7 @@ function App() {
           <Route path='/course/:id' exact component={CourseDetailsPage}/>
           <Route path='/article/:id' exact component={ArticleDetails}/>
           <Route path='/articlelists' exact component={ArticleLists}/>
+          <Route path='/login' exact component={Login}/>
         </Switch>
       </Router>
     </>

@@ -49,6 +49,7 @@ const Course = ({ data }) => {
     const [search, setSearch] = useState("");
     const [noRes, setNoRes] = useState(null);
     const [categories, setCategories] = useState([]);
+    const [subCategories, setSubCategories] = useState([]);
 
     useEffect(() => {
         api("api/course/show")
@@ -56,28 +57,17 @@ const Course = ({ data }) => {
                 setCourse([])
                 setCourse(data.courses);
                 setCategories(data.categories);
+                setSubCategories(data.subCategories);
+                if(data.subCategories === []){
+                    setCategories([{"name" : "mamad", "id" : "20"}])
+                }
                 console.log(data);
             })
     }, []);
 
-    const options = [
-        // { value: `${categories.name}`},
-        // { value: `${categories.name}`},
-        // { value: `${categories.name}`}
-        categories.map(({name}, i) => {
-            return(
-                { value: `${categories.name}`}
-            );
-        })
-    ]
-
-    // [
-    //     { value: 'دسته بندی اول'},
-    //     { value: 'دسته بندی دوم'},
-    //     { value: 'دسته بندی سوم'}
-    // ]
+    const options = categories.map(({name, id}, i) => ({ value: id, label: name }))
+    const optionsTwo = subCategories.map(({name, id}, i) => ({ value: id, label: name }))
     
-
     function submit(){
         console.log(search);
         axios.post('http://sararajabi.com/api/course/search', {
@@ -102,8 +92,6 @@ const Course = ({ data }) => {
             console.log(error);
         });
     }
-
-    
 
     function handleSearchChaneg(event){
         if (event.target.value === "") {
@@ -139,7 +127,7 @@ const Course = ({ data }) => {
                                         <SelectS options={options/* "value :" `${categories.map(({name}, i) =>{ return({name})})}`*/} placeholder="دسته بندی اول" />
                                     </Filter>
                                     <Filter>
-                                        <SelectS options={options} placeholder="دسته بندی دوم" />
+                                        <SelectS options={optionsTwo} placeholder="دسته بندی دوم" />
                                     </Filter>
                                 </FilterContainer>
                             </SearchContainer>

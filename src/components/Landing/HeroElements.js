@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { CgLogIn } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 export const HeroContainer = styled.div`
     background: #fff;
@@ -147,7 +148,7 @@ export const LogIn = styled.button`
     }
 `
 
-export const LoginCol = styled.a`
+export const LoginCol = styled(Link)`
     display: flex;
     text-decoration: none;
     color: unset;

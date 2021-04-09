@@ -57,7 +57,7 @@ const Article = ({ data }) => {
 
     function submit(){
         console.log(search);
-        axios.post('http://sararajabi.com/api/course/search', {
+        axios.post('http://sararajabi.com/api/article/search', {
             search: search,
         }, {
             headers: {
@@ -86,7 +86,7 @@ const Article = ({ data }) => {
         if (event.target.value === "") {
             api("api/article/show")
             .then((data) => {
-                setArticle(data.courses);
+                setArticle(data.artciles);
             })
             setNoRes(null)
         } else {

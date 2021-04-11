@@ -18,7 +18,7 @@ const Nsi = () => {
                     <NotSignIn>
                         <H1>شما ثبت نام نکرده اید!</H1>
                         <Hr />
-                        <Button href="http://sararajabi.com/login">ثبت نام کنید</Button>
+                        <Button to="/login">ثبت نام کنید</Button>
                     </NotSignIn>
                 </MainContainer>
             <Footer />

@@ -44,11 +44,15 @@ import { backStyle, gifStyle } from '../../Data';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import api from '../../api';
+import axios from 'axios';
+
+const token = 'parsur';
 
 const Hero = () => {
 
    const [home, setHome] = useState(null);
    const [isLogin, setIslogin] = useState(false);
+   const [name, setName] = useState("")
 
   useEffect(() => {
         api("api/home")
@@ -58,6 +62,31 @@ const Hero = () => {
                 console.log(data);
             })
     }, []);
+
+    useEffect(() => {
+      axios.get('http://sararajabi.com/api/user/show', {
+          headers: {
+              'api_key': `${token}`,
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          }
+        }
+      ).then(function (response) {
+          console.log(response);
+          setName(response.data.user);
+          if(response.data.user == null){
+            setIslogin(false);
+          } else {
+            setIslogin(true);
+          }
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+      // api("api/user/show")
+      //     .then(({ user }) => {
+      //         setUser(user);
+      //     })
+  }, []);
 
     return home ? (
         <HeroContainer>
@@ -75,7 +104,7 @@ const Hero = () => {
                           </div>
                           <div style={isLogin ? {display:"unset"} : {display:"none"}}>
                           <Welcome to="/userpage#/">
-                            <WelcomeUser>Ferox</WelcomeUser>
+                            <WelcomeUser>{name.name}</WelcomeUser>
                           </Welcome>
                           </div>
                         </LogIn>

@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react'
 import User from '../User';
 import { dash, userDash } from '../../Data';
 import Nsi from '../User/notsignedin';
-import api from '../../api';
 
 const UserPage = () => {
     const [islogin, setIslogin] = useState(false);
 
     useEffect(() => {
-        api("api/home")
-            .then((data) => {
-                setIslogin(data.authentication);
-            })
-    }, []);
+        if(localStorage.getItem('token') == null){
+            setIslogin(false);
+        } else {
+            setIslogin(true);
+        }
+    }, [])
 
     return (
         <>

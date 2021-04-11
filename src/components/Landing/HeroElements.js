@@ -378,7 +378,7 @@ export const HeroIcon = styled.div`
     }
 `
 
-export const Welcome = styled.a`
+export const Welcome = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;

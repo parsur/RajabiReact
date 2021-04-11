@@ -33,7 +33,7 @@ export const Hr = styled.hr`
     border: 1px solid #000;
 `
 
-export const Button = styled.a`
+export const Button = styled(Link)`
     height: 75px;
     width: 300px;
     font-size: 25px;

@@ -12,6 +12,8 @@ import {
 } from './LoginElements';
 import LoginLogo from '../../images/LoginLogo.svg';
 import axios from 'axios';
+import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
@@ -20,6 +22,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
 
   const token = 'parsur';
+
+  let history = useHistory();
 
   function submit(){
     axios.get('http://sararajabi.com/sanctum/csrf-cookie', {
@@ -42,13 +46,16 @@ const Login = () => {
     .then(function (response) {
         // setCourse(response.data);
         console.log(response);
+        if(response.data.access_token !== undefined) {
+          localStorage.setItem("token", (response.data.access_token));
+          console.log(response.data.access_token);
+          history.goBack();
+        }
     })
     .catch(function (error) {
         console.log(error);
     });
     });
-
-    
 }
 
   return (

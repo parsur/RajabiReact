@@ -57,6 +57,7 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        direction: rtl;
       `
       
         export const Input = styled.input`
@@ -76,7 +77,10 @@ export const Container = styled.div`
         `
 
         export const Links = styled(Link)`
-          direction: rtl;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
         `
 
         export const Submit = styled.button`

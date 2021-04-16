@@ -88,7 +88,7 @@ const Signup = () => {
             <Input onChange={event => setPhone(event.target.value)} type="number" placeholder="شماره موبایل شما"/>
           </InputContainer>
           <InputContainer>
-            <Input onChange={event => setPass(event.target.value)} type="password" placeholder="رمز شما"/>
+            <Input onChange={event => setPass(event.target.value)} type="password" placeholder="رمز شما (حداقل ۸ حرف)"/>
           </InputContainer>
           <InputContainer>
             <Input onChange={event => setConfPass(event.target.value)} type="password" placeholder="تایید رمز"/>

@@ -111,14 +111,14 @@ const Article = ({ data }) => {
                                     <Search onChange={handleSearchChaneg} type="search" id="search" required="required" placeholder="سرچ کنید..." />
                                     <Submit onClick={()=>submit()} type="submit" value="جستجو"><AiOutlineSearch/></Submit>
                                 </Searchs>
-                                <FilterContainer>
+                                {/* <FilterContainer>
                                     <Filter>
                                         <SelectS options={options} placeholder="دسته بندی اول" />
                                     </Filter>
                                     <Filter>
                                         <SelectS options={options} placeholder="دسته بندی دوم" />
                                     </Filter>
-                                </FilterContainer>
+                                </FilterContainer> */}
                             </SearchContainer>
                             <H1>مقاله ها</H1>
                         </TContainer>
@@ -182,14 +182,14 @@ const Article = ({ data }) => {
                                     <Search onChange={handleSearchChaneg} type="search" id="search" required="required" placeholder="سرچ کنید..." />
                                     <Submit onClick={()=>submit()} type="submit" value="جستجو"><AiOutlineSearch/></Submit>
                                 </Searchs>
-                                <FilterContainer>
+                                {/* <FilterContainer>
                                     <Filter>
                                         <SelectS options={options} placeholder="دسته بندی اول" />
                                     </Filter>
                                     <Filter>
                                         <SelectS options={options} placeholder="دسته بندی دوم" />
                                     </Filter>
-                                </FilterContainer>
+                                </FilterContainer> */}
                             </SearchContainer>
                             <H1>مقاله ها</H1>
                         </TContainer>

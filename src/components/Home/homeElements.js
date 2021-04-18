@@ -112,9 +112,11 @@ export const Header = styled.h1`
 export const Description = styled.h4`
   font-size: clamp(0.7rem, 1.5vw, 2rem);
   margin: 30px 30px 0 30px;
+  text-align: justify;
+  width: 40vw;
 
   @media screen and (max-width:800px){
-    width: 80vw;
+    width: 70vw;
   }
 `
 

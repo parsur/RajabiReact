@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import detailstop from '../../images/detailstop.png';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
+import article from '../../images/article.png';
+import shop from '../../images/shop.png';
+import whyme from '../../images/course.png';
+import cons from '../../images/callus.png';
 
 export const Container = styled.div`
   display: flex;
@@ -71,6 +76,8 @@ export const Figure = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
+  flex-wrap: wrap;
+  background: #000;
 
   @media screen and (max-width:500px){
     width: 100%;
@@ -446,11 +453,12 @@ export const HiOutlineUserCircles = styled(HiOutlineUserCircle)`
 
 export const Videos = styled.div`
   width: 100%;
-  height: 400px;
-  background-image: radial-gradient(circle, #eeeeee50 , #00000050);
+  height: ${props => props.active ? 'auto' : '400px'};
+  background-image: radial-gradient(circle, #fff , #F4DD4F90);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 `
 
 export const Iframe = styled.iframe`
@@ -464,4 +472,85 @@ export const NoComments = styled.div`
   background: #eee;
   margin-top: 20px;
   border-radius: 10px;
+`
+
+export const OthersContainer = styled.div`
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+`
+
+export const OTop = styled.div`
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px grey;
+  color: #F4DD4F;
+  font-weight: bold;
+  padding: 20px 0;
+`
+
+export const OBttom = styled.div`
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px;
+`
+
+export const BP = styled.p`
+  position: absolute;
+  z-index: 2;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #eeeeee50;
+  border-radius: 50%;
+  transition: 0.3s;
+`
+
+export const BoxB = styled.div`
+  width: 150px;
+  height: 150px;
+  background-image: ${props => props.article ? `url(${article})` : `url(${cons})` && props.course ? `url(${shop})` : `url(${cons})` && props.whyme ? `url(${whyme})` : `url(${cons})`};
+  background-size: cover;
+  filter: blur(3px);
+  border-radius: 50%;
+  transition: 0.3s;
+`
+
+export const Box = styled.div`
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  transition: 0.3s;
+  
+  &:hover ${BP} {
+    background: transparent;
+    color: transparent;
+    transition: 0.3s;
+  }
+
+  &:hover ${BoxB} {
+    filter: none;
+    transition: 0.3s;
+  }
 `

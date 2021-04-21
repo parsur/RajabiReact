@@ -154,14 +154,6 @@ export const Category = styled.p`
   cursor: pointer;
 `
 
-export const Description = styled.div`
-  width: 75%;
-  direction: rtl;
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-`
-
 export const Ul = styled.ul`
   display: flex;
   flex-direction: column;
@@ -170,19 +162,6 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   margin-top: 10px;
-`
-
-export const Room = styled.div`
-  width: 380px;
-  min-height: 150px;
-  background: #eee;
-  margin: 10px 10px;
-  border-radius: 15px;
-  padding: 10px;
-
-  @media screen and (max-width:500px){
-    width: 100%;
-  }
 `
 
 export const SMLeft = styled.div`

@@ -317,12 +317,6 @@ return course && desc && comments ? (
 
           <Category>{category.name} / {subCategoryName}</Category>
 
-          <Description>
-
-            <Room><h2>توضیحات دوره پایینتر داده شده!</h2></Room>
-
-          </Description>
-
         </Center>
         
       </Middle>

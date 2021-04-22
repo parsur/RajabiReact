@@ -162,7 +162,7 @@ function addCart(){
 
 function cartError(){
   if(isError){
-    return <p style={{direction:"rtl", color:"red", background:"white", borderRadius:"5px", padding:"5px 0"}}>لطفا برای اضافه کردن در سبد وارد شوید.</p>
+    return <p style={{direction:"rtl", color:"red", background:"white", borderRadius:"5px", padding:"5px 0"}}>لطفا برای اضافه کردن در سبد <Link to='/login'>وارد</Link> شوید.</p>
   } else if(succes) {
     return <p style={{direction:"rtl", color:"white", background:"green", borderRadius:"5px", padding:"5px 2px"}}>با موفقیت به سبد خرید اضافه شد.</p>
   }

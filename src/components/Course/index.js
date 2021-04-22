@@ -68,7 +68,7 @@ const Course = ({ data }) => {
     }, []);
 
     const options = categories.map(({name, id}) => ({ value: id, label: name }))
-    const optionsTwo = subCategories.map(({name, id}) => ({ value: id, label: name }))
+    const optionsTwo = (subCategories.map(({name, id}) => ({ value: id, label: name })))
     
     function submit(){
         console.log(search);
@@ -76,6 +76,7 @@ const Course = ({ data }) => {
             search: search,
             category_id: selectedOption,
             sub_category_id: selectedOptionTwo,
+            column: 'name',
         }, {
             headers: {
               'api_key': `${token}` 

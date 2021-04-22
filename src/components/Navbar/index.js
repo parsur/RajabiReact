@@ -39,6 +39,8 @@ function NavbarTwo(props) {
     const [condition, setCondition] = useState(false)
     const [modalOpen, setModalOpen] = useState(false)
     const [orders, setOrders] = useState([])
+    const [id, setId] = useState()
+    
     const showNav = () => setCondition(!condition);
 
     useEffect(() => {
@@ -51,6 +53,22 @@ function NavbarTwo(props) {
         ).then(function (response) {
             console.log(response);
             setOrders(response.data.carts);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }, []);
+
+    useEffect(() => {
+        axios.get('http://sararajabi.com/api/v1/user/show', {
+            headers: {
+                'api_key': `${token}`,
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+          }
+        ).then(function (response) {
+            console.log(response);
+            setId(response.data.user.id);
         })
         .catch(function (error) {
             console.log(error);

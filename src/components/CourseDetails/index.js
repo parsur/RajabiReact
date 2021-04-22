@@ -236,29 +236,6 @@ function handleImage(images){
         </Videos>)
   }
 }
-// else if(videos == 0 && images != 0){
-//   return (
-//     images.map(({url}, i) => {
-//       return (
-//         <img key={i} src={'http://sararajabi.com/' + url} style={{background:"#000",maxHeight:"380px"}} alt="course"/>
-//       )
-//     })
-//   )
-// } else if(videos != 0 && images != 0){
-//   return ( <div style={{padding:"40px", display:"flex", justifyContent:"space-evenly", flexWrap:"wrap"}}>
-//     <div style={{padding:"20px"}}>{images.map(({url}, i) => {
-//       return (
-//         <img key={i} src={'http://sararajabi.com/' + url} style={{background:"#000",maxHeight:"380px"}} alt="course"/>
-//       )
-//     })}</div>
-//     <div style={{padding:"20px"}}>{videos.map(({url}, i) => {
-//       return (
-//         <iframe key={i} src={url} style={{width:"500px",height:"380px",background:"#000"}} title="desc"></iframe>
-//       )
-//     })}</div>
-//     </div>
-//   )
-// }
 
 return course && desc && comments ? (
     <Container>

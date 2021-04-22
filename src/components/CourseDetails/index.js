@@ -138,6 +138,25 @@ function noComments(){
 const token = 'parsur';
 
 function addCart(){
+  if(course.price === null){
+    axios.get(`http://sararajabi.com/api/v1/course/downloadFreeCourses?id=${id}`,{
+      headers: {
+        'api_key': `${token}`,
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      }
+    }
+  )
+  .then(function (response) {
+      console.log(response);
+      setSucces(true);
+  })
+  .catch(function (error) {
+      console.log(error);
+      if(error){
+        setIsError(true)
+      }
+  });
+  } else {
   axios.post('http://sararajabi.com/api/v1/cart/store', {
       course_id: id
   }, {
@@ -159,12 +178,15 @@ function addCart(){
       }
   });
 }
+}
 
 function cartError(){
   if(isError){
     return <p style={{direction:"rtl", color:"red", background:"white", borderRadius:"5px", padding:"5px 0"}}>لطفا برای اضافه کردن در سبد <Link to='/login'>وارد</Link> شوید.</p>
-  } else if(succes) {
+  } else if(succes && course.price !== null) {
     return <p style={{direction:"rtl", color:"white", background:"green", borderRadius:"5px", padding:"5px 2px"}}>با موفقیت به سبد خرید اضافه شد.</p>
+  } else if(succes && course.price === null) {
+    return <p style={{direction:"rtl", color:"white", background:"green", borderRadius:"5px", padding:"5px 2px"}}>با موفقیت به ایمیلتان فرستاده شد.</p>
   }
 }
 

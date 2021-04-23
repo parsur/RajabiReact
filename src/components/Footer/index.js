@@ -26,9 +26,6 @@ const Footer = (props) => {
                             <SocialIconLink href='https://www.joinclubhouse.com/@sararajabi' target='_blank' aria-label='FaTwitter' rel='noopener noreferrer'>
                                 <GiHand />
                             </SocialIconLink>
-                            <SocialIconLink href='09140734880' target='_blank' aria-label='FaTwitter' rel='noopener noreferrer'>
-                                <IoCall />
-                            </SocialIconLink>
                             <SocialIconLink href='https://m.aparat.com/v/VfvJ2' target='_blank' aria-label='FaTwitter' rel='noopener noreferrer'>
                                 <img src={aparat} alt="aparat" width="35px" />
                             </SocialIconLink>

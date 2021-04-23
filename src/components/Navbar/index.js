@@ -38,28 +38,8 @@ const token = 'parsur';
 
 function NavbarTwo(props) {
     const [condition, setCondition] = useState(false)
-    const [modalOpen, setModalOpen] = useState(false)
-    const [orders, setOrders] = useState([])
-
-    let history = useHistory();
     
     const showNav = () => setCondition(!condition);
-
-    useEffect(() => {
-        axios.get('http://sararajabi.com/api/v1/cart/show', {
-            headers: {
-                'api_key': `${token}`,
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          }
-        ).then(function (response) {
-            console.log(response);
-            setOrders(response.data.carts);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }, []);
 
     useEffect(() => {
         axios.get('http://sararajabi.com/api/v1/user/show', {
@@ -76,88 +56,14 @@ function NavbarTwo(props) {
         });
     }, []);
 
-    function submit(){
-        axios.post('http://sararajabi.com/api/v1/order/store', {}, {
-            headers: {
-              'api_key': `${token}`,
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          }
-        ).then(function (response) {
-            console.log(response);
-            window.location.replace(`${response.data.action}`);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }
-
-    function noCart(){
-        if(orders == 0){
-            return <NoOrder>سفارشی ندارید</NoOrder>
-        }
-    }
-
     return (
         <div style={props.style}>
-            <Modal style={{
-                overlay: {
-                    direction:"rtl",
-                    zIndex:"200",
-                    transition:"0.3s"
-                },
-                content: {
-                    padding:"0 5px",
-                    background:"#F4DD4F",
-                    display:"flex",
-                    flexDirection:"column",
-                    alignItems:"center",
-                    transition:"0.3s"
-                }
-            }} onRequestClose={() => setModalOpen(false)} isOpen={modalOpen}>
-                <ModalHeader>سبد خرید</ModalHeader>
-                {noCart()}
-                {orders.map(({course, id}, i) => {
-                    return (
-                        <>
-                            <ModalBlock key="i">
-                                <ModalRight>
-                                    {course.name}
-                                </ModalRight>
-                                <ModalLeft onClick={() => {
-                                    axios.get(`http://sararajabi.com/api/v1/cart/delete/${id}`, {
-                                        headers: {
-                                            'api_key': `${token}`,
-                                            'Authorization': `Bearer ${localStorage.getItem('token')}`
-                                        }
-                                    }
-                                    ).then(function (response) {
-                                        console.log(response);
-                                        window.location.reload(false);
-                                        setModalOpen(true);
-                                    })
-                                    .catch(function (error) {
-                                        console.log(error);
-                                    });
-                                }}>
-                                    <IoMdCloseCircleOutline/>
-                                </ModalLeft>
-                            </ModalBlock>
-                        </>
-                    )
-                })}
-                <div style={(orders == 0) ? {display:"none"} : {display:"unset"}}>
-                    <Verify onClick={()=>submit()}>
-                        نهایی کردن خرید
-                    </Verify>
-                </div>
-            </Modal>
         <Navbar>
             <NavLink to='#'>
                 <FaBarsIcon onClick={showNav} />
             </NavLink>
                         <MenuLiTop>
-                            <MenuLinkTops user="true" last="true" onClick={() => setModalOpen(true)}>
+                            <MenuLinkTops user="true" last="true" to="/cart">
                                 <FaShoppingBasket />
                                 <span style={{marginLeft: '16px'}}>سبد خرید</span>
                             </MenuLinkTops>
@@ -255,7 +161,7 @@ function NavbarTwo(props) {
                             </MenuLink>
                         </MenuLi>
                         <MenuLi>
-                            <MenuLinks user="true" last="true" onClick={() => setModalOpen(true)}>
+                            <MenuLinks user="true" last="true" to="/cart">
                                 <FaShoppingBasket />
                                 <span style={{marginLeft: '16px'}}>سبد خرید</span>
                             </MenuLinks>

@@ -13,6 +13,7 @@ import ArticleLists from './components/Pages/ArticleListPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -120,6 +121,7 @@ function App() {
           <Route path='/articlelists' exact component={ArticleLists}/>
           <Route path='/login' exact component={Login}/>
           <Route path='/register' exact component={Signup}/>
+          <Route path='/cart' exact component={Cart}/>
         </Switch>
       </Router>
     </>

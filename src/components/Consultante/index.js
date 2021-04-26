@@ -18,6 +18,7 @@ import {
  } from './ConsultanteElements';
 import conlogo from '../../images/conlogo.png';
 import axios from 'axios';
+import axiosApi from '../../axios';
 
 const Consultante = () => {
 
@@ -28,13 +29,8 @@ const Consultante = () => {
     const token = 'parsur';
 
     useEffect(() => {
-        axios.get('http://sararajabi.com/api/v1/user/show', {
-            headers: {
-                'api_key': `${token}`,
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-          }
-        ).then(function (response) {
+        axiosApi('/user/show')
+        .then(function (response) {
             console.log(response);
             // setName(response.data.user); YOU WILL NEED THIS
             if(response.data.user == null){

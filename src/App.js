@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import FirstPage from './components/Pages/FirstPage';
 import GlobalStyle from './globalStyles';
 import CourseListPage from './components/Pages/CourseListPage';
 import AboutUsPage from './components/Pages/AboutUsPage';

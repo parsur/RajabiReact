@@ -34,27 +34,10 @@ import { useHistory } from 'react-router';
 
 Modal.setAppElement("#root");
 
-const token = 'parsur';
-
 function NavbarTwo(props) {
     const [condition, setCondition] = useState(false)
     
     const showNav = () => setCondition(!condition);
-
-    useEffect(() => {
-        axios.get('http://sararajabi.com/api/v1/user/show', {
-            headers: {
-                'api_key': `${token}`,
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            }
-          }
-        ).then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }, []);
 
     return (
         <div style={props.style}>

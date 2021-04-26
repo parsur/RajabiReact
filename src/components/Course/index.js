@@ -41,6 +41,7 @@ import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import axios from 'axios';
 import whymebg from '../../images/test2bg.jpeg';
+import apiAxios from '../../axios';
 
 const token = 'parsur';
 
@@ -127,12 +128,7 @@ const Course = ({ data }) => {
     function sendDetails(){
         console.log(selectedOption);
         setSubCategories([])
-        axios.get(`http://sararajabi.com/api/v1/sub_category?category_id=${selectedOption}`,{
-            headers: {
-              'api_key': `${token}` 
-            }
-          }
-        )
+        apiAxios(`/sub_category?category_id=${selectedOption}`)
         .then(function ({ data }) {
             setSubCategories(data);
             console.log(data);

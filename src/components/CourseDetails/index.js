@@ -61,6 +61,7 @@ import Loader from 'react-loader-spinner';
 import Particles from 'react-particles-js';
 import { backStyleTwo, gifStyleTwo } from '../../Data';
 import { Link } from 'react-router-dom';
+import axiosApi from '../../axios';
 
 const images = [
   {
@@ -136,13 +137,7 @@ const token = 'parsur';
 
 function addCart(){
   if(course.price === null){
-    axios.get(`http://sararajabi.com/api/v1/course/downloadFreeCourses?id=${id}`,{
-      headers: {
-        'api_key': `${token}`,
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      }
-    }
-  )
+  axiosApi(`/course/download?id=${id}`)
   .then(function (response) {
       console.log(response);
       setSucces(true);
@@ -166,7 +161,6 @@ function addCart(){
   .then(function (response) {
       console.log(response);
       setSucces(true);
-      window.location.reload(false);
   })
   .catch(function (error) {
       console.log(error);

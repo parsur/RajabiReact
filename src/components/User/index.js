@@ -23,6 +23,7 @@ import api from '../../api';
 import Orders from './orders';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import apiAxios from '../../axios';
 
 // these down here are just test
 const DisplayOne = () => {
@@ -46,25 +47,17 @@ const User = ({
 
     const [user, setUser] = useState();
 
+
     useEffect(() => {
-        axios.get('http://sararajabi.com/api/v1/user/show', {
-            headers: {
-                'api_key': `${token}`,
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            }
-          }
-        ).then(function (response) {
+        apiAxios('/user/show')
+        .then(function (response) {
             console.log(response);
             setUser(response.data.user);
         })
         .catch(function (error) {
             console.log(error);
-        });
-        // api("api/user/show")
-        //     .then(({ user }) => {
-        //         setUser(user);
-        //     })
-    }, []);
+        })
+      }, []);
 
     return user ? (
         <Container>
@@ -73,7 +66,7 @@ const User = ({
             <MainContainer>
                 <Display>
                     <Route exact path='/' component={DisplayOne} />
-                    <Route path='/testtwo' component={DisplayTwo} />
+                    <Route path='/orders' component={DisplayTwo} />
                 </Display>
                 <UserNavbar>
                     <ProfileContainer>
@@ -104,7 +97,7 @@ const User = ({
             <MainContainer>
                 <Display>
                     <Route exact path='/' component={DisplayOne} />
-                    <Route path='/testtwo' component={DisplayTwo} />
+                    <Route path='/orders' component={DisplayTwo} />
                 </Display>
                 <UserNavbar>
                     <ProfileContainer>

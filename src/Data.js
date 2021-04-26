@@ -13,6 +13,11 @@ export const userDash = [
     to: '/',
     text: 'حساب کاربری',
     icon: <AiFillAlert />
+  },
+  {
+    to: '/orders',
+    text: 'سفارشات',
+    icon: <AiFillAlipayCircle />
   }
 ]
 

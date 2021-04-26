@@ -16,6 +16,7 @@ import {
   Verify,
   NoOrder
 } from './CartIndex';
+import axiosApi from '../../axios';
 
 const Cart = () => {
 
@@ -25,13 +26,8 @@ const Cart = () => {
   const token = 'parsur';
 
   useEffect(() => {
-    axios.get('http://sararajabi.com/api/v1/cart/show', {
-        headers: {
-            'api_key': `${token}`,
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      }
-    ).then(function (response) {
+    axiosApi(`/cart/show`)
+    .then(function (response) {
         setOrders(response.data.carts);
         setIsLoaded(true);
     })
@@ -41,13 +37,8 @@ const Cart = () => {
   }, []);
 
   function deleter(id){
-      axios.get(`http://sararajabi.com/api/v1/cart/delete/${id}`, {
-          headers: {
-              'api_key': `${token}`,
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-      }
-      ).then(function (response) {
+      axiosApi(`/cart/delete/${id}`)
+      .then(function (response) {
           window.location.reload(false);
       })
       .catch(function (error) {
@@ -123,7 +114,7 @@ const Cart = () => {
         <div style={{width:"100%", height:"100%", display:"flex"}}>
         <Loader
         type="Oval"
-        color="#F4DD4F"
+        color="#f4dd4f"
         height={150}
         width={150}
         timeout={3000} //3 secs

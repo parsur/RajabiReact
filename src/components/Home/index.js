@@ -30,6 +30,7 @@ import shop from '../../images/shop.png';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import Loader from 'react-loader-spinner';
+import apiAxios from '../../axios';
 
 const token = 'parsur';
 
@@ -60,43 +61,29 @@ const Home = () => {
       });
 }
 
+  useEffect(() => {
+    apiAxios('/home')
+    .then(function (response) {
+        console.log(response);
+        setHome(response.data);
+        setIslogin(response.data.authentication);
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+  }, []);
 
   useEffect(() => {
-    axios.get('http://sararajabi.com/api/v1/home', {
-      headers: {
-          'api_key': `${token}`,
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      }
-    }
-  ).then(function (response) {
-      console.log(response);
-      setHome(response.data);
-      setIslogin(response.data.authentication);
-  })
-  .catch(function (error) {
-      console.log(error);
-  });
-    }, []);
-
-    useEffect(() => {
-      axios.get('http://sararajabi.com/api/v1/user/show', {
-          headers: {
-              'api_key': `${token}`,
-              'Authorization': `Bearer ${localStorage.getItem('token')}`,
-          }
-        }
-      ).then(function (response) {
-          console.log(response);
-          setName(response.data.user);
-      })
-      .catch(function (error) {
-          console.log(error);
-      });
-      // api("api/user/show")
-      //     .then(({ user }) => {
-      //         setUser(user);
-      //     })
+    apiAxios('/user/show')
+    .then(function (response) {
+        console.log(response);
+        setName(response.data.user);
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
   }, []);
+
   return home ? (
     <div style={{width:"100vw",height:"100vh",background:"#fff"}}>
       <Contianer>

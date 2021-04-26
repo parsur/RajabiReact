@@ -22,6 +22,7 @@ export const MainContainer = styled.div`
 
     @media screen and (max-width: 500px){
         flex-direction: column-reverse;
+        justify-content: flex-end;
         margin: 10px auto;
         width: 100%;
     }
@@ -138,6 +139,8 @@ export const LinkContainer = styled(Link)`
     @media screen and (max-width: 500px){
         font-size: 18px;
         padding: 10px 1px;
+        justify-content: center;
+        align-items: center;
     }
 
     @media screen and (max-width: 390px){

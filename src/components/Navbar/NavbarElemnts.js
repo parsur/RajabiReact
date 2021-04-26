@@ -34,6 +34,7 @@ export const FaBarsIcon = styled(FaBars)`
 
 export const NavUl = styled.ul`
     width: 100%;
+    overflow: scroll;
 `
 
 export const NavLi = styled.li`

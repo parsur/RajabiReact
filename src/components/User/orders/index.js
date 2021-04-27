@@ -12,6 +12,9 @@ import Loader from "react-loader-spinner";
 import apiAxios from '../../../axios';
 import Modal from 'react-modal';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import axios from 'axios';
+
+Modal.setAppElement("#root");
 
 const Orders = () => {
     
@@ -25,7 +28,6 @@ const Orders = () => {
       apiAxios('/order/showOrder')
       .then(function (response) {
         setOrder(response.data.orders);
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -39,7 +41,6 @@ const Orders = () => {
         setOrderCourses(response.data.orderCourses);
         setSummery(response.data.order);
         setModalOpen(true);
-        console.log(response)
       })
       .catch(function (error) {
         console.log(error);
@@ -60,15 +61,15 @@ const Orders = () => {
     }
 
     function handleBg(statuses){
-      if(statuses.status == 2){
+      if(statuses.status == 0){
         return {borderRight:"5px solid red"}
-      } else if(statuses.status == 3){
+      } else if(statuses.status == 1){
         return {borderRight:"5px solid lightgreen"}
       }
     }
 
     function handleBought(course){
-      if(orderDetails.order.statuses.status == 3){
+      if(orderDetails.order.statuses.status == 1){
         return(<>
           <hr style={{border:"1px solid gray",width:"100px", margin:"10px 0"}}/>
           <h3><span style={{color:"gray"}}></span> <h3 style={{color:"gray"}}>لینک دریافت دوره</h3></h3>
@@ -86,10 +87,27 @@ const Orders = () => {
       }
     }
 
-    function handleButton(statuses, factor){
-      if(statuses.status == 2){
-        return <BBlock><h3 style={{color:"red"}}>این سفارش پرداخت نشده!</h3></BBlock>
-      } else if(statuses.status == 3){
+    function handlePay(id){
+      axios.post('http://sararajabi.com/api/v1/order/completeUnpaidOrder', {
+          id: id
+      }, {
+          headers: {
+            'api_key': 'parsur',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      ).then(function (response) {
+          window.location.replace(`${response.data.action}`);
+      })
+      .catch(function (error) {
+          console.log(error);
+      })
+    }
+
+    function handleButton(statuses, factor, id){
+      if(statuses.status == 0){
+        return <BBlock><h3 onClick={()=>handlePay(id)} style={{color:"red"}}>پرداخت سفارش</h3></BBlock>
+      } else if(statuses.status == 1){
         return <BBlock><Bbutton onClick={()=>getDetails(factor)}>جزیات سفارش</Bbutton></BBlock>
       }
     }
@@ -98,7 +116,6 @@ const Orders = () => {
       apiAxios(`/order/delete/${id}`)
       .then(function (response) {
         window.location.reload(false);
-        console.log(response)
       })
       .catch(function (error) {
         console.log(error);
@@ -135,9 +152,9 @@ const Orders = () => {
 
                 <BBlock>قیمت کل: {total_price}</BBlock>
 
-                {handleButton(statuses, factor)}
+                {handleButton(statuses, factor, id)}
 
-                <div style={statuses.status == 2 ? {display:"unset",width:"100%"} : {display:"none"}}>
+                <div style={statuses.status == 0 ? {display:"unset",width:"100%"} : {display:"none"}}>
                   <BBlock style={{color:"#800000",fontWeight:"bold",cursor:"pointer"}}><span onClick={()=>handleDeleteShop(id)}><RiDeleteBin6Line/> حذف سفارش</span></BBlock>
                 </div>
 

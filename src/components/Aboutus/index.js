@@ -32,7 +32,6 @@ const About = () => {
                 <AboutRowTwo>
                     <BoxBottomOne>
                         <SmallerBox>
-                            {/* Here is going to be the petit box things */}
                         </SmallerBox>
                     </BoxBottomOne>
                     <BoxBottomTwo>

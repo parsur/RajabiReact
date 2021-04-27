@@ -31,8 +31,6 @@ const Consultante = () => {
     useEffect(() => {
         axiosApi('/user/show')
         .then(function (response) {
-            console.log(response);
-            // setName(response.data.user); YOU WILL NEED THIS
             if(response.data.user == null){
                 setIsSignedIn(false);
             } else {
@@ -42,10 +40,6 @@ const Consultante = () => {
         .catch(function (error) {
             console.log(error);
         });
-        // api("api/user/show")
-        //     .then(({ user }) => {
-        //         setUser(user);
-        //     })
     }, []);
 
     function submit(){
@@ -59,7 +53,6 @@ const Consultante = () => {
             }
           }
         ).then(function (response) {
-            console.log(response);
         })
         .catch(function (error) {
             console.log(error);

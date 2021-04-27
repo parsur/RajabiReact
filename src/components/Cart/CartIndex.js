@@ -122,3 +122,24 @@ export const NoOrder = styled.div`
     padding-right: 10px;
   }
 `
+
+export const PBlock = styled.div`
+  width: 100%;
+  height: 80px;
+  background: #eee;
+  margin: 0 auto;
+  border-radius: 15px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`
+
+export const Pleft = styled.div`
+  direction: rtl;
+  font-size: 1.1rem;
+`
+
+export const Pright = styled.div`
+  direction: rtl;
+  font-size: 1.3rem;
+`

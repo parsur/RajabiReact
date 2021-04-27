@@ -6,19 +6,14 @@ import {
   Middle,
   Left,
   Center,
-  Right,
   Sidebar,
-  Figure,
   STop,
   SMiddle,
   SBottom,
   Price,
   HR,
-  H, H3,
+  H,
   Category,
-  Description,
-  Ul, Li,
-  Room,
   SMLeft,
   SMRight,
   STH,
@@ -45,14 +40,12 @@ import {
   UserComment,
   Commenter,
   HiOutlineUserCircles,
-  Videos, Iframe,
+  Videos,
   NoComments,
   OthersContainer,
   OTop, OBttom,
   Box, BP, BoxB
 } from './CourseDetailsElements';
-import test2bg from '../../images/test2bg.jpeg';
-import ImageGallery from 'react-image-gallery';
 import './coursedetails.css';
 import api from '../../api';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -62,21 +55,6 @@ import Particles from 'react-particles-js';
 import { backStyleTwo, gifStyleTwo } from '../../Data';
 import { Link } from 'react-router-dom';
 import axiosApi from '../../axios';
-
-const images = [
-  {
-    original: 'https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1015/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1015/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1019/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1019/250/150/',
-  },
-];
 
 const CourseDetails = () => {
   let { id } = useParams();
@@ -96,7 +74,6 @@ const CourseDetails = () => {
 useEffect(() => {
   api(`api/v1/course/details?id=${id}`)
       .then((data) => {
-          console.log(data);
           setCourse(data.course);
           setDesc(data.course.description);
           setComments(data.course.comments);
@@ -139,7 +116,6 @@ function addCart(){
   if(course.price === null){
   axiosApi(`/course/download?id=${id}`)
   .then(function (response) {
-      console.log(response);
       setSucces(true);
   })
   .catch(function (error) {
@@ -159,7 +135,6 @@ function addCart(){
     }
   )
   .then(function (response) {
-      console.log(response);
       setSucces(true);
   })
   .catch(function (error) {
@@ -193,13 +168,10 @@ function submit(){
     }
   )
   .then(function (response) {
-      console.log(response);
-      if(response.data.success === "دیدگاه مرتبط به دوره با موفقیت ثبت شد"){
-        alert('کامنت شما با موفقیت ثبت شد.');
-
-
-  setName('');
-  setNewComment('');
+      if(response.statusText === "Created"){
+          alert('کامنت شما با موفقیت ثبت شد.');
+          setName('');
+          setNewComment('');
       }
   })
   .catch(function (error) {
@@ -366,31 +338,6 @@ return course && desc && comments ? (
         
         <div className="course-details-description-main" dangerouslySetInnerHTML={ {__html: desc.description} }/>
         </BRight>
-        {/* <CKEditor
-                    editor={ ClassicEditor }
-                    data={description.value}
-                    config={ {
-                      // Use the German language for this editor.
-                      language: 'fa',
-                      // ...
-                  } }
-              
-                    onReady={ editor => {
-                      editor.isReadOnly="true"
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        console.log( { event, editor, data } );
-                    } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-                />
-
-        </BRight> */}
       </Bottom>
 
       <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
@@ -484,4 +431,3 @@ return course && desc && comments ? (
 }
 
 export default CourseDetails;
-// dangerouslySetInnerHTML={ {__html: description.value} }

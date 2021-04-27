@@ -1,5 +1,4 @@
-import { AiFillAlert, AiFillAlipayCircle, AiFillCarryOut, AiFillDropboxCircle } from 'react-icons/ai';
-import { Block } from './components/Course/CourseElements';
+import { AiFillAlert, AiFillAlipayCircle, } from 'react-icons/ai';
 
 export const mainPageData =
     {

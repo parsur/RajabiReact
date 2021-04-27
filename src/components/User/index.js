@@ -11,7 +11,6 @@ import {
     Profile,
     ProfileImg,
     ProfileTxt,
-    LogOutContainer
 } from './UserElements';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -19,13 +18,9 @@ import workinggirl from '../../images/working-girl.png';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Details from './details';
 import { dash } from '../../Data';
-import api from '../../api';
 import Orders from './orders';
-import axios from 'axios';
-import { useHistory } from 'react-router';
 import apiAxios from '../../axios';
 
-// these down here are just test
 const DisplayOne = () => {
     return(
         <Details {...dash} />
@@ -37,10 +32,7 @@ const DisplayTwo = () => {
     );
 }
 
-const token = 'parsur';
-
 const User = ({
-    dashboardName,
     data
 }) => {
 
@@ -51,7 +43,6 @@ const User = ({
     useEffect(() => {
         apiAxios('/user/show')
         .then(function (response) {
-            console.log(response);
             setUser(response.data.user);
         })
         .catch(function (error) {

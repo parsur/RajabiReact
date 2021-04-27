@@ -5,27 +5,11 @@ import {
   Top,
   Middle,
   Center,
-  Right,
-  Sidebar,
-  Figure,
-  STop,
-  SMiddle,
-  SBottom,
-  Price,
   HR,
-  H, H3,
+  H,
   Category,
-  Description,
-  Ul, Li,
-  Room,
-  SMLeft,
-  SMRight,
-  STH,
-  STUL, STLI,
   STHR,
   Bottom,
-  BLeft,
-  SBC,
   Comments,
   MakeNew,
   MNTop,
@@ -43,12 +27,10 @@ import {
   UserComment,
   Commenter,
   HiOutlineUserCircles,
-  Videos, Iframe,
+  Videos,
   NoComments,
   BRight
 } from './ArticleDetailsElements';
-import test2bg from '../../images/test2bg.jpeg';
-import ImageGallery from 'react-image-gallery';
 import './articledetails.css';
 import api from '../../api';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -56,21 +38,6 @@ import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import { Box, BoxB, BP, OBttom, OthersContainer, OTop } from '../CourseDetails/CourseDetailsElements';
 import { Link } from 'react-router-dom';
-
-const images = [
-  {
-    original: 'https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1015/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1015/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1019/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1019/250/150/',
-  },
-];
 
 const ArticleDetails = () => {
   let { id } = useParams();
@@ -88,7 +55,6 @@ const ArticleDetails = () => {
 useEffect(() => {
   api(`api/v1/article/details?id=${id}`)
       .then((data) => {
-          console.log(data);
           setArticle(data.article);
           setDesc(data.article.description);
           setComments(data.article.comments);
@@ -112,7 +78,6 @@ function noComments(){
 const token = 'parsur';
 
 function submit(){
-  console.log(id);
   axios.post('http://www.sararajabi.com/api/v1/articleComment/store', {
       comment: newComment,
       name: name,
@@ -124,10 +89,11 @@ function submit(){
     }
   )
   .then(function (response) {
-      console.log(response);
-      alert('کامنت شما با موفقیت ثبت شد')
-      setNewComment('');
-      setName('');
+      if(response.statusText === "Created"){
+        alert('کامنت شما با موفقیت ثبت شد.');
+        setName('');
+        setNewComment('');
+    }
   })
   .catch(function (error) {
       console.log(error);
@@ -197,7 +163,6 @@ function handleImage(images){
       
       <Bottom>
         
-        {/* <div className="course-details-description" dangerouslySetInnerHTML={ {__html: desc.description} }/> */}
         <BRight>
         
         <div className="course-details-description" dangerouslySetInnerHTML={ {__html: desc.description} }/>
@@ -296,4 +261,3 @@ function handleImage(images){
 }
 
 export default ArticleDetails;
-// dangerouslySetInnerHTML={ {__html: description.value} }

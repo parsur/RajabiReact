@@ -13,7 +13,6 @@ import {
 } from './LoginElements';
 import LoginLogo from '../../images/LoginLogo.svg';
 import axios from 'axios';
-import { Redirect } from 'react-router';
 import { useHistory } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
@@ -45,17 +44,18 @@ const Login = () => {
       }
     )
     .then(function (response) {
-        // setCourse(response.data);
-        console.log(response);
         if(response.data.access_token !== undefined) {
           localStorage.setItem("token", (response.data.access_token));
-          console.log(response.data.access_token);
           history.push('/');
         }
     })
     .catch(function (error) {
-        console.log(error);
-        alert("ایمیل یا پسورد اشتباه است");
+        if(error.response.data.errors.email != undefined){
+          alert(error.response.data.errors.email);
+        }
+        if(error.response.data.errors.password != undefined){
+          alert(error.response.data.errors.password);
+        }
     });
     });
 }

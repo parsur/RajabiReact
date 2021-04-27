@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { FaCartPlus, FaRemoveFormat, FaShoppingBasket, FaUserCircle } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaShoppingBasket, FaUserCircle } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
-import { IoIosPaper, IoMdClose, IoMdCloseCircle, IoMdCloseCircleOutline, IoMdRemoveCircleOutline } from 'react-icons/io';
 import { ImQuestion } from 'react-icons/im';
-import { FcAbout, FcConferenceCall } from 'react-icons/fc';
 import { FiMessageSquare, FiPhoneCall } from 'react-icons/fi';
 import { CgTranscript } from 'react-icons/cg';
 import { SiMinds } from 'react-icons/si';
@@ -21,18 +19,7 @@ import {
     MenuLinkTops,
     MenuLink,
     MenuLinks,
-    ModalBlock,
-    ModalLeft,
-    ModalRight,
-    ModalHeader,
-    NoOrder,
-    Verify
 } from './NavbarElemnts';
-import Modal from 'react-modal';
-import axios from 'axios';
-import { useHistory } from 'react-router';
-
-Modal.setAppElement("#root");
 
 function NavbarTwo(props) {
     const [condition, setCondition] = useState(false)

@@ -1,9 +1,8 @@
 import React from 'react';
 import { SvgBg, FooterContainer, FooterWrap, SocialMedia, SocialMediaWrap, SocialLogo, SocialIcons, SocialIconLink} from './FooterElements';
-import { FaInstagram, FaTwitter, FaTelegramPlane } from 'react-icons/fa';
+import { FaInstagram, FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { GiHand } from 'react-icons/gi';
-import { IoCall } from 'react-icons/io5';
 import aparat from '../../images/aparat.png';
 
 const Footer = (props) => {

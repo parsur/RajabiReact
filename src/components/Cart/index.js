@@ -14,7 +14,10 @@ import {
   BlockRight,
   CourseName,
   Verify,
-  NoOrder
+  NoOrder,
+  PBlock,
+  Pleft,
+  Pright
 } from './CartIndex';
 import axiosApi from '../../axios';
 
@@ -22,6 +25,8 @@ const Cart = () => {
 
   const [orders, setOrders] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [count, setCount] = useState("");
+  const [price, setPrice] = useState("");
 
   const token = 'parsur';
 
@@ -29,6 +34,8 @@ const Cart = () => {
     axiosApi(`/cart/show`)
     .then(function (response) {
         setOrders(response.data.carts);
+        setCount(response.data.count);
+        setPrice(response.data.total_price);
         setIsLoaded(true);
     })
     .catch(function (error) {
@@ -91,6 +98,10 @@ const Cart = () => {
               </Block>
             )
         })}
+          <PBlock style={(orders == 0) ? {display:"none"} : {display:"flex"}}>
+            <Pleft>قیمت کل: {price}</Pleft>
+            <Pright>تعداد: {count}</Pright>
+          </PBlock>
         <div style={(orders == 0) ? {display:"none"} : {display:"unset"}}>
           <Verify onClick={()=>submit()}>
             <h3 dir="rtl">

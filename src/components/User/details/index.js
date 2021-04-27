@@ -8,34 +8,22 @@ import {
     D1, D2, D3,
     Number, Email,
     Created, Edited,
-    Button
 } from './DetailsElements';
 import Loader from "react-loader-spinner";
-import axios from 'axios';
-import { useHistory } from 'react-router';
 import apiAxios from '../../../axios';
 
-const Details = ({
-    dashboardName,
-    mobileNumber,
-    emailAddress,
-    created,
-    edited,
-}) => {
+const Details = () => {
     const [user, setUser] = useState();
 
     useEffect(() => {
         apiAxios('/user/show')
         .then(function (response) {
-            console.log(response);
             setUser(response.data.user);
         })
         .catch(function (error) {
             console.log(error);
         })
       }, []);
-
-    let history = useHistory();
 
     return user ? (
         <>

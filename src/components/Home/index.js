@@ -49,8 +49,7 @@ const Home = () => {
           }
         }
       ).then(function (response) {
-        console.log(response);
-        if(response.data.success === "کاربر با موفقیت از حساب کاربری خود خارج شد"){
+        if(response.data.message === "کاربر با موفقیت از حساب کاربری خود خارج شد"){
           localStorage.removeItem('token');
           history.push('/');
           window.location.reload(false);
@@ -64,7 +63,6 @@ const Home = () => {
   useEffect(() => {
     apiAxios('/home')
     .then(function (response) {
-        console.log(response);
         setHome(response.data);
         setIslogin(response.data.authentication);
     })
@@ -76,7 +74,6 @@ const Home = () => {
   useEffect(() => {
     apiAxios('/user/show')
     .then(function (response) {
-        console.log(response);
         setName(response.data.user);
     })
     .catch(function (error) {

@@ -55,7 +55,7 @@ const Orders = () => {
             background:"lime",
             borderRadius:"10px",
             padding:"10px"
-          }}>تابحال سفارشی نداشته اید</div>
+          }}>سفارش ثبت شده ای برای شما وجود ندارد</div>
         )
       }
     }
@@ -125,7 +125,7 @@ const Orders = () => {
     return order ? (
           <Container>
             <div style={orderCourses ? {display:"unset"} : {display:"none"}}>
-            <Modal isOpen={modalOpen} onRequestClose={()=>setModalOpen(false)}>
+            <Modal style={{overlay:{zIndex:"25"}}} isOpen={modalOpen} onRequestClose={()=>setModalOpen(false)}>
               <h2 style={{textAlign:"center",marginBottom:"20px",fontSize:"2rem"}}>جزیات سفارش</h2>
               {orderCourses.map(({course}, i) => {
                 return (
@@ -150,7 +150,7 @@ const Orders = () => {
                 
                 <BBlock>فاکتور: {factor}</BBlock>
 
-                <BBlock>قیمت کل: {total_price}</BBlock>
+                <BBlock>قیمت کل: {total_price} تومان</BBlock>
 
                 {handleButton(statuses, factor, id)}
 

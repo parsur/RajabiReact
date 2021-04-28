@@ -47,14 +47,17 @@ const Login = () => {
         if(response.data.access_token !== undefined) {
           localStorage.setItem("token", (response.data.access_token));
           history.push('/');
+        } else if(response.data.success === false){
+          alert(response.data.message);
         }
     })
     .catch(function (error) {
-        if(error.response.data.errors.email != undefined){
+        if(error.response.data.errors != undefined){
           alert(error.response.data.errors.email);
-        }
-        if(error.response.data.errors.password != undefined){
+        } else if(error.response.data.errors != undefined){
           alert(error.response.data.errors.password);
+        } else if(error.response.data.success === false){
+          alert(error.response.data.message);
         }
     });
     });

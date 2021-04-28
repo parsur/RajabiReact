@@ -70,8 +70,10 @@ const Cart = () => {
       }
     })
     .catch(function (error) {
-        alert('شما بیشتر از ۵ سفارش بدون پرداخت نمیتوانید داشته باشید')
-        console.log(error);
+        console.log(error.response);
+        if(error.response.data.success === false){
+          alert('شما بیشتر از 4 سفارش بدون پرداخت نمیتوانید داشته باشید')
+        }
     });
   }
 
@@ -108,7 +110,7 @@ const Cart = () => {
             )
         })}
           <PBlock style={(orders == 0) ? {display:"none"} : {display:"flex"}}>
-            <Pleft>قیمت کل: {price}</Pleft>
+            <Pleft>قیمت کل: {price} تومان</Pleft>
             <Pright>تعداد: {count}</Pright>
           </PBlock>
         <div style={(orders == 0) ? {display:"none"} : {display:"unset"}}>

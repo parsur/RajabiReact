@@ -67,13 +67,13 @@ const Consultante = () => {
                     <Left>
                         <TextContainer>
                             <Text>
-                                <H1>برای درخاست مشاوره درگاه هارا وارد کنید!</H1>
+                                <H1>برای درخواست مشاوره درگاه هارا وارد کنید</H1>
                                 <Form onSubmit={event => event.preventDefault()}>
-                                    <Area maxLength="250" onChange={event => setDesc(event.target.value)} active placeholder='درخاست خود را وارد کنید.' />
+                                    <Area maxLength="250" onChange={event => setDesc(event.target.value)} active placeholder='درخواست خود را وارد کنید.' />
                                     <Submit onClick={()=>submit()} value="ثبت کنید" type='submit' />
                                 </Form>
                                 <Block>
-                                    پس از درخاست با شما در ارتباط خواهیم بود.
+                                    پس از درخواست با شما در ارتباط خواهیم بود.
                                 </Block>
                             </Text>
                         </TextContainer>
@@ -93,14 +93,14 @@ const Consultante = () => {
                     <Left>
                         <TextContainer>
                             <Text>
-                                <H1>برای درخاست مشاوره درگاه هارا وارد کنید!</H1>
+                                <H1>برای درخواست مشاوره درگاه هارا وارد کنید</H1>
                                 <Form onSubmit={event => event.preventDefault()}>
-                                    <Area disabled active placeholder='درخاست خود را وارد کنید.' />
+                                    <Area disabled active placeholder='درخواست خود را وارد کنید.' />
                                     <Name onChange={event => setPhone(event.target.value)} type='text' name='fname' placeholder='شماره تلفن' />
                                     <Submit onClick={()=>submit()} value="ثبت کنید" type='submit' />
                                 </Form>
                                 <Block>
-                                    برای نوشتن درخاست کامل تر، وارد شوید.
+                                    برای نوشتن درخواست کامل تر، وارد شوید.
                                 </Block>
                             </Text>
                         </TextContainer>

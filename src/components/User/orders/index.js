@@ -163,7 +163,7 @@ const Orders = () => {
           </Container>
     ) : (
       <>
-        <div style={{width:"100%", height:"100%", display:"flex"}}>
+        <div style={{width:"100%", height:"100%", background:"#fff", display:"flex"}}>
             <Loader
             type="Oval"
             color="#F4DD4F"

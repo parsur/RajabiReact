@@ -71,7 +71,7 @@ useEffect(() => {
 
 function noComments(){
   if(comments == 0){
-    return <NoComments>اولین کسی باشید که کامنت میگذارید!</NoComments>
+    return <NoComments>اولین کسی باشید که کامنت میگذارید</NoComments>
   }
 }
 
@@ -186,7 +186,7 @@ function handleImage(images){
 
       <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
 
-      <CommentsH2>نظر ها</CommentsH2>
+      <CommentsH2>دیدگاه ها</CommentsH2>
 
       <Comments>
 
@@ -202,7 +202,7 @@ function handleImage(images){
 
             <MNRight>
 
-              <MNText>کامنت نو</MNText>
+              <MNText>دیدگاه جدید</MNText>
 
             </MNRight>
 
@@ -210,7 +210,7 @@ function handleImage(images){
 
           <MNBottom>
 
-            <TextArea value={newComment} onChange={(item)=>{setNewComment(item.target.value)}} placeholder="کامنت شما" >
+            <TextArea value={newComment} onChange={(item)=>{setNewComment(item.target.value)}} placeholder="دیدگاه شما" >
 
             </TextArea>
 
@@ -218,7 +218,7 @@ function handleImage(images){
 
           <MNSubBottom>
 
-            <SubmitComments onClick={()=>submit()}>ثبت کامنت</SubmitComments>
+            <SubmitComments onClick={()=>submit()}>ثبت دیدگاه</SubmitComments>
 
           </MNSubBottom>
 
@@ -227,13 +227,13 @@ function handleImage(images){
         {noComments()}
 
         <div style={comments ? {display:"unset"} : {display:"none"}}>
-        {comments.map(({ comment }) => {
+        {comments.map(({ comment, name }) => {
           return(
         <Comment>
           
           <UserTop>
 
-            <Commenter><HiOutlineUserCircles/>کاربر</Commenter>
+            <Commenter><HiOutlineUserCircles/>{name}</Commenter>
 
           </UserTop>
 

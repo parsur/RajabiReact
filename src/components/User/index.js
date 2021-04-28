@@ -17,9 +17,10 @@ import Footer from '../Footer';
 import workinggirl from '../../images/working-girl.png';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Details from './details';
-import { dash } from '../../Data';
+import { backStyleTwo, dash, gifStyleTwo } from '../../Data';
 import Orders from './orders';
 import apiAxios from '../../axios';
+import Particles from 'react-particles-js';
 
 const DisplayOne = () => {
     return(
@@ -52,6 +53,7 @@ const User = ({
 
     return user ? (
         <Container>
+            <Particles params={backStyleTwo} style={gifStyleTwo}/>
             <Navbar />
             <Router>
             <MainContainer>
@@ -81,8 +83,8 @@ const User = ({
             </Router>
         </Container>
     ) : (
-        
         <Container>
+            <Particles params={backStyleTwo} style={gifStyleTwo}/>
             <Navbar />
             <Router>
             <MainContainer>

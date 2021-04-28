@@ -34,22 +34,15 @@ const Details = () => {
             <DetailContainer>
                 <Detail>
                 <D1>
-                    <Number>شماره تلفن شما :<span style={{color:"grey"}}>{user.phone_number}</span></Number>
-                    <Email>نشانی ایمیل شما :<span style={{color:"grey"}}>{user.email}</span></Email>
+                    <Number>شماره تلفن شما <span style={{color:"grey"}}>{user.phone_number}</span></Number>
+                    <Email>نشانی ایمیل شما <span style={{color:"grey"}}>{user.email}</span></Email>
                 </D1>
-                    <D2>
-                        <Created>تاریخ ساخت اکانت: <span style={{color:"grey"}}>{user.created_at}</span></Created>
-                        <Edited>تاریخ آخرین ویرایش: <span style={{color:"grey"}}>{user.updated_at}</span></Edited>
-                    </D2>
-                    <D3>
-                        
-                    </D3>
                 </Detail>
             </DetailContainer>
         </Container>
         </>
     ) : (
-        <div style={{width:"100%", height:"100%", display:"flex"}}>
+        <div style={{width:"100%", height:"100%", background:"#fff", display:"flex"}}>
             <Loader
             type="Oval"
             color="#F4DD4F"

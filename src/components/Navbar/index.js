@@ -47,7 +47,7 @@ function NavbarTwo(props) {
                         <MenuLiTop>
                             <MenuLinkTop to='/aboutus'>
                                 <FiMessageSquare />
-                                <span style={{marginLeft: '16px'}}>درباره</span>
+                                <span style={{marginLeft: '16px'}}>درباره من</span>
                             </MenuLinkTop>
                         </MenuLiTop>
                         <MenuLiTop>
@@ -121,7 +121,7 @@ function NavbarTwo(props) {
                         <MenuLi>
                             <MenuLink to='/aboutus'>
                                 <FiMessageSquare />
-                                <span style={{marginLeft: '16px'}}>درباره</span>
+                                <span style={{marginLeft: '16px'}}>درباره من</span>
                             </MenuLink>
                         </MenuLi>
                         <MenuLi>

@@ -15,6 +15,7 @@ export const MainContainer = styled.div`
     border-radius: 25px;
     display: flex;
     flex-direction: row;
+    z-index: 99999;
 
     @media screen and (max-width: 1000px){
         width: 95%;
@@ -33,6 +34,7 @@ export const Display = styled.div`
     width: 70%;
     border-radius: 25px 0 0 25px;
     padding: 20px 20px 0 20px;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         width: 100%;
@@ -47,6 +49,7 @@ export const UserNavbar = styled.div`
     flex-direction: column;
     align-items: center;
     border-radius: 0 25px 25px 0;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         flex-direction: column-reverse;
@@ -64,6 +67,7 @@ export const ProfileContainer = styled.div`
     flex-direction: column;
     align-items: center;
     border-radius: 0 0 20px 20px;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         height: 150px;
@@ -79,11 +83,13 @@ export const Profile = styled.div`
     height: 100%;
     align-items: center;
     cursor: pointer;
+    z-index: 10;
 `
 
 export const ProfileImg = styled.img`
     width: 60%;
     height: auto;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         display: none;
@@ -93,6 +99,7 @@ export const ProfileImg = styled.img`
 export const ProfileTxt = styled.p`
     font-size: 20px;
     margin-top: 8px;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         width: 100%;
@@ -111,6 +118,7 @@ export const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    z-index: 10;
 
     @media screen and (max-width: 500px){
         flex-direction: row-reverse;
@@ -130,6 +138,7 @@ export const LinkContainer = styled(Link)`
     transition: 0.2s;
     padding: 10px 5px;
     border-radius: 15px;
+    z-index: 10;
 
     &:hover {
         background: #00000020;
@@ -151,9 +160,11 @@ export const LinkContainer = styled(Link)`
 export const Lp = styled.p`
     direction: rtl;
     margin-right: 8px;
+    z-index: 10;
 `
 
 export const Span = styled.span`
+    z-index: 10;
     @media screen and (max-width:500px){
         display: none;
     }
@@ -168,6 +179,7 @@ export const LogOutContainer = styled.div`
     justify-content: center;
     background: yellow;
     margin: 0 auto;
+    z-index: 10;
 
     @media screen and (max-width: 1000px){
         width: 95%;

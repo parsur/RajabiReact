@@ -20,6 +20,8 @@ import {
   Pright
 } from './CartIndex';
 import axiosApi from '../../axios';
+import Particles from 'react-particles-js';
+import { backStyleTwo, gifStyleTwo } from '../../Data';
 
 const Cart = () => {
 
@@ -61,9 +63,14 @@ const Cart = () => {
         }
       }
     ).then(function (response) {
+      if(response.data.action == undefined){
+        
+      } else {
         window.location.replace(`${response.data.action}`);
+      }
     })
     .catch(function (error) {
+        alert('شما بیشتر از ۵ سفارش بدون پرداخت نمیتوانید داشته باشید')
         console.log(error);
     });
   }
@@ -76,8 +83,10 @@ const Cart = () => {
 
   return isLoaded ? (
     <>
+    <Particles params={backStyleTwo} style={gifStyleTwo}/>
     <Navbar/>
     <Container>
+      
       <Main>
         <Header>
           <H2>سبد خرید</H2>
@@ -115,6 +124,7 @@ const Cart = () => {
     </>
   ) : (
     <>
+    <Particles params={backStyleTwo} style={gifStyleTwo}/>
     <Navbar/>
     <Container>
       <Main>

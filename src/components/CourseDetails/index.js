@@ -106,7 +106,7 @@ function handleAddCart(course){
 
 function noComments(){
   if(comments == 0){
-    return <NoComments>اولین کسی باشید که کامنت میگذارید!</NoComments>
+    return <NoComments>اولین کسی باشید که کامنت میگذارید</NoComments>
   }
 }
 
@@ -356,7 +356,7 @@ return course && desc && comments ? (
 
       <STHR style={{border:"1px solid grey", width:"90%", margin:"50px auto"}} />
 
-      <CommentsH2>نظر ها</CommentsH2>
+      <CommentsH2>دیدگاه ها</CommentsH2>
 
       <Comments>
 
@@ -372,7 +372,7 @@ return course && desc && comments ? (
 
             <MNRight>
 
-              <MNText>کامنت نو</MNText>
+              <MNText>دیدگاه جدید</MNText>
 
             </MNRight>
 
@@ -380,7 +380,7 @@ return course && desc && comments ? (
 
           <MNBottom>
 
-            <TextArea value={newComment} onChange={(item)=>{setNewComment(item.target.value)}} placeholder="کامنت شما" >
+            <TextArea value={newComment} onChange={(item)=>{setNewComment(item.target.value)}} placeholder="دیدگاه شما" >
 
             </TextArea>
 
@@ -388,7 +388,7 @@ return course && desc && comments ? (
 
           <MNSubBottom>
 
-            <SubmitComments onFocus="this.value=''" onClick={()=>submit()}>ثبت کامنت</SubmitComments>
+            <SubmitComments onFocus="this.value=''" onClick={()=>submit()}>ثبت دیدگاه</SubmitComments>
 
           </MNSubBottom>
 

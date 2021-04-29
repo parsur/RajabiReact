@@ -51,9 +51,10 @@ const Course = ({ data }) => {
             .then((data) => {
                 setCourse([])
                 setCourse(data.courses);
+                console.log(data);
                 setCategories(data.categories);
-                setSubCategories(data.subCategories);
-                if(data.subCategories === []){
+                setSubCategories(data.subcategories);
+                if(data.subcategories === []){
                     setCategories([{"name" : "mamad", "id" : "20"}])
                 }
             })

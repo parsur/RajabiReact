@@ -89,6 +89,14 @@ const Consultante = () => {
         }
     }
 
+    function handlePlaceHolder(){
+        if(user){
+            return user.phone_number
+        } else {
+            return 'null'
+        }
+    }
+
     return (
         <>
         <div style={isSignedIn ? {display:"unset"} : {display:"none"}}>
@@ -100,6 +108,7 @@ const Consultante = () => {
                                 <H1>برای درخواست مشاوره درگاه هارا وارد کنید</H1>
                                 <Form onSubmit={event => event.preventDefault()}>
                                     <Area value={desc} maxLength="250" onChange={event => setDesc(event.target.value)} active placeholder='درخواست خود را وارد کنید.' />
+                                    <Name disabled type='text' name='fname' placeholder={handlePlaceHolder()} />
                                     <Submit onClick={()=>submit()} value="ثبت کنید" type='submit' />
                                 </Form>
                                 <Block>
